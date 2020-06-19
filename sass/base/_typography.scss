@@ -1,0 +1,125 @@
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  /*   font-size: 16px; */
+    line-height: 1.7;
+    color: $color-grey;
+    
+}
+
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    line-height: 1.2;
+
+    margin-bottom: 4rem;
+    backface-visibility: hidden;
+
+
+    &--main {
+        display: block;
+        font-size: 8rem;
+        font-weight: 700;
+        letter-spacing: 3rem;
+    
+        animation: moveinLeft;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
+
+        /* animation-iteration-count: 3; */
+        /* animation-delay: 1s; */
+    }
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 1.5rem;
+    
+    
+        animation: moveinRight;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        /* animation-iteration-count: 3; */
+        /* animation-delay: 1s; */
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
+    
+    }
+ 
+}
+
+.heading-secondary {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .2rem;
+
+    display: inline-block; //make the bg stop to the tip of the h2
+    background-image: linear-gradient(to left, $color-primary, $color-secondary);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    transition: all .1s;
+
+    @include respond (tab-port) {
+        font-size: 2.5rem;
+        letter-spacing: .1rem; 
+    }
+    @include respond (phone) {
+        font-size: 2rem;
+        letter-spacing: .1rem;
+    }
+
+    &:hover {
+         transform: scale(1.05);
+         text-shadow: 0rem 1rem 2rem rgba($color-black, .1);
+    }
+
+    &--albums {
+        font-size: 6rem;
+    }
+
+}
+
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.paragraph {
+    font-size: $default-font-size;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
+
+
+.heading-quaternary {
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    color: $color-white;
+    transition: all .2s ease-out;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+
+    &:hover {
+        transform: scale(1.05) translateY(-.5rem);
+        text-shadow: 0rem 1rem 2rem rgba($color-black, .1);
+   }
+
+}
+    
+
+

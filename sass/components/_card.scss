@@ -1,0 +1,259 @@
+.cards {
+
+    //FUNTIONALITY
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 65rem;
+    
+
+    
+    &__side {
+        height: 65rem;
+        transition: all .8s ease;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        backface-visibility: hidden;
+
+        border-radius: 5px;
+        box-shadow: 0rem 1.5rem 2rem rgba($color-black, .15);
+        overflow: hidden;
+
+        &--front {
+            &-1 {
+                background-color: $color-white;
+            }
+            &-2 {
+                background-color: $color-white;
+            }
+            &-3 {
+                background-color: $color-white;
+            }
+
+
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+           
+            &-1 {
+                background-image: linear-gradient(to left top, $color-palette1-album1, $color-palette2-album1);
+            }
+            &-2 {
+                background-image: linear-gradient(to left top, $color-palette1-album2, $color-palette2-album2);
+            }
+            &-3 {
+                background-image: linear-gradient(to left top, $color-palette1-album3, $color-palette2-album3);
+            }
+
+        }
+    }
+
+
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    } 
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+
+
+    //FRONT SIDE STYLING
+
+
+    //---------------------BACKGROUND-HEADER-------------------------//
+
+    &__picture {
+        background-size: cover;
+        background-position: bottom;
+        height: 28rem;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 93%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 90%);
+
+
+
+        &--1 {
+            background-image: linear-gradient(
+                to left top, 
+                rgba($color-palette1-album1, .2),
+                rgba($color-palette2-album1, .4)),
+            url(../img/album_art/feel-special.jpg);
+        }
+        &--2 {
+            background-image: linear-gradient(
+                to left top,
+                rgba($color-palette1-album2, .6),
+                rgba($color-palette2-album2, .6)),
+            url(../img/album_art/more&more.jpg);
+        }
+        &--3 {
+            background-image: linear-gradient(to left top,
+             rgba($color-palette1-album3, .3),
+            rgba($color-palette2-album3, .5)),
+        url(../img/album_art/fancy-you.jpg);
+
+            background-position: top;
+        }
+    }
+
+
+    //-----------------------------TITLE-HEADER-----------------------//
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;
+        text-align: left;
+
+        position: absolute;
+        top: 18rem;
+        left: 2rem;
+        width: 50%;
+    }
+
+    &__heading-span {
+        padding: 1rem 1rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom,  rgba($color-palette1-album1, .85) , rgba( $color-palette2-album1, .85));
+        }
+
+
+        &--2 {
+            background-image: linear-gradient(to right bottom,  rgba($color-palette1-album2, .85) , rgba( $color-palette2-album2, .85));
+        }
+        &--3 {
+            background-image: linear-gradient(to right bottom,  rgba($color-palette1-album3, .85) , rgba( $color-palette2-album3, .85));
+        }
+    }
+
+
+    //----------------------------DETAILS------------------------------//
+
+    &__details {
+        padding: 2rem 3rem 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-dark;
+                }
+            }            
+        }
+    }
+
+
+
+
+
+
+
+    //BACK SIDE STYLING
+
+
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+        
+    }
+    
+    &__price-box {
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 8rem;
+        text-transform: uppercase;
+        font-weight: 100;
+
+    }
+    &__price-only {
+        font-size: 2rem;
+        text-transform: uppercase;
+
+    }
+    &__price-value {
+        font-size: 3rem;
+    }
+
+    //@extend respond(tab-port) {
+        @media only screen and (max-width: 56.35rem),
+                only screen and (hover: none) {
+        height: auto;
+        border-radius: 5px;
+        background-color: $color-white;
+        box-shadow: 0rem 1.5rem 2rem rgba($color-black, .15);
+            
+        &__side {
+            height: auto;
+            position: relative;
+            box-shadow: none;
+            
+            
+
+            &--back {
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+
+
+
+        &:hover &__side--front {
+            transform: (rotateY0);
+        } 
+
+        .__details {
+            padding: 1rem 3rem;
+        } 
+
+
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            padding: 7rem  4rem 4rem 4rem;
+
+            width: 100%;
+            padding: 4rem;
+            
+        }
+        
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+
+        &__price-value {
+            font-size: 3rem;
+        }
+}
+
+}
+
+
+
+
+
+
+

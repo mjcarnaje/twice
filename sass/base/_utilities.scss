@@ -1,0 +1,57 @@
+.u-center-text  {
+    text-align: center !important; //we can use it because it it treated as text when we change the display into inline-block.
+    
+}
+.u-margin-bottom-big {
+    margin-bottom: 7rem !important;
+
+    @include respond(tab-port) {
+        margin-bottom: 4rem !important;
+    }
+}
+
+.u-margin-bottom-small {
+    margin-bottom: 1.5rem !important;
+
+    @include respond(tab-port) {
+        margin-bottom: 1rem !important;
+    }
+
+}
+.u-margin-bottom-very-small {
+    margin-bottom: .8rem !important;
+    @include respond(tab-port) {
+        margin-bottom: .6rem !important;
+    }
+}
+
+
+.u-margin-bottom-medium {
+    margin-bottom: 4rem !important;
+
+    @include respond (tab-port) {
+        margin-bottom: 3rem !important;
+    }
+}
+
+.u-margin-top-big {
+    margin-top: 7rem !important;
+
+    @include respond(tab-port) {
+        margin-top: 4rem !important;
+    }
+}
+.u-margin-top-huge {
+    margin-top: 9rem !important;
+
+    @include respond(tab-port) {
+        margin-top: 6rem !important;
+    }
+}
+.u-margin-top-very-huge {
+    margin-top: 11rem !important;
+
+    @include respond(tab-port) {
+        margin-top: 8rem !important;
+    }
+}

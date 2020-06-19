@@ -1,0 +1,154 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color-black, .3);
+    z-index: 3000;
+
+    opacity: 0;             //we don't use display:none here because we cannot animate it
+    visibility: hidden;
+    transition: all .3s;
+
+    backdrop-filter: blur(6px);
+
+    
+    &__content {
+        @include center;
+        width: 75%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+
+        //animation for opening
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .4s .2s;
+
+        @include respond(tab-land) {
+            width: 85%;
+        }
+
+        @include respond(tab-port) {
+            width: 95%;
+            display: block;
+        }
+        
+
+    }
+    &__left {
+        width: 43%; //33.3333
+        display: table-cell; 
+
+        @include respond(tab-port) {
+            width: auto;
+            display: block;
+            @include clearfix;
+        }
+    }
+    &__right {
+        width: 57%; //66.6667
+        display: table-cell; //instead of using float, we use table cell so that we can vertically align it in the middle
+        vertical-align: middle;
+        padding: 3rem 5rem;
+
+        @include respond(tab-land) {
+            padding: 2rem 3rem;
+
+        }
+        
+        @include respond(tab-port) {
+            width: auto;
+            display: block;
+        }
+    }
+
+
+    &__img {
+        display: table-cell;
+        width: 100%;
+
+        @include respond(tab-port) {
+            width: 50%;
+            float: left;
+            
+
+        }
+    }
+
+    &__img:first-child {
+        @include respond(tab-port) {
+            height: 100%;
+            float: left;
+        }
+    }
+    &__text {
+        font-size: 1.45rem; //1.5rem
+        margin-bottom: 0rem; //4rem
+
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem;
+        -moz-column-rule: 1px solid $color-grey-dark;
+
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 1px solid $color-grey-dark;
+
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;  
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        
+
+        @include respond(tab-land) {
+            font-size: 1.74rem;
+
+        }
+        @include respond(tab-port) {
+            font-size: 1.84rem;
+
+        }
+    }
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    &__close {
+        &:link, 
+        &:visited {
+            color: $color-grey-dark-2;
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+
+            @include respond(tab-land) {
+                font-size: 5rem;
+                color: $color-grey-dark-3;
+    
+            }
+            @include respond(tab-port) {
+                font-size: 5rem;
+                color: $color-grey-dark-3;
+    
+            }
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+}
