@@ -1,5 +1,4 @@
 .navigation {
-
     &__checkbox {
         display: none;
     }
@@ -12,15 +11,15 @@
         top: 6rem;
         border-radius: 50%;
         z-index: 2000;
-        box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
         text-align: center;
         cursor: pointer;
 
-        @include respond (tab-port) {
+        @include respond(tab-port) {
             right: 4rem;
             top: 4rem;
         }
-        @include respond (phone) {
+        @include respond(phone) {
             right: 3rem;
             top: 3rem;
         }
@@ -34,18 +33,17 @@
         right: 6.5rem;
         background-image: radial-gradient($color-secondary, $color-primary);
         z-index: 1000;
-        transition: transform .8s cubic-bezier(.86, 0, .07, 1);
-        
-        @include respond (tab-port) {
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        @include respond(tab-port) {
             right: 4.5rem;
             top: 4.5rem;
         }
 
-        @include respond (phone) {
+        @include respond(phone) {
             right: 3.5rem;
             top: 3.5rem;
         }
-
     }
     &__nav {
         height: 100vh;
@@ -53,28 +51,24 @@
         top: 0;
         left: 0;
         z-index: 1500;
-        
+
         opacity: 1;
         width: 0;
-        transition: all .8s cubic-bezier(.68, -0.55, .265, 1.55);
+        transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
         transform: translateX(-20rem); //important
+    }
 
-    }    
-        
     &__list {
         list-style: none;
         @include center;
         text-align: center;
         width: 100%;
-
     }
     &__item {
         margin: 1rem;
-
     }
     &__link {
-
         &:link,
         &:visited {
             display: inline-block;
@@ -86,15 +80,21 @@
             text-decoration: none;
 
             //BACKGROUND OF SLIDE EFFFECT
-            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%); 
+            background-image: linear-gradient(
+                120deg,
+                transparent 0%,
+                transparent 50%,
+                $color-white 50%
+            );
             background-size: 220%;
 
-            transition: all .4s;
-            
-            span { //NUMBER
+            transition: all 0.4s;
+
+            span {
+                //NUMBER
                 margin-right: 1.5rem;
                 display: inline-block;
-            }   
+            }
         }
 
         &:hover, //SLIDE EFFECT
@@ -102,11 +102,10 @@
             background-position: 100%;
             color: $color-primary;
             transform: translateX(-1rem);
-        } 
+        }
     }
 
     //FUNTIONALITY
-
 
     &__checkbox:checked ~ &__background {
         transform: scale(80);
@@ -117,12 +116,10 @@
         transform: translateX(0);
     }
 
-
-    //ICON  
+    //ICON
     &__icon {
         position: relative;
         margin-top: 3.5rem;
-        
 
         &,
         &::before,
@@ -133,23 +130,25 @@
             display: inline-block;
         }
 
-        &::before, 
+        &::before,
         &::after {
-            content: "";//to make it visible
+            content: ''; //to make it visible
             position: absolute;
             left: 0;
-            transition: all .2s;
+            transition: all 0.2s;
         }
-        &::before {top: -.8rem;}
-        &::after {top: .8rem;}
+        &::before {
+            top: -0.8rem;
+        }
+        &::after {
+            top: 0.8rem;
+        }
     }
-
-
 
     &__button:hover &__icon::before {
         top: -1rem;
     }
-    
+
     &__button:hover &__icon::after {
         top: 1rem;
     }
@@ -159,12 +158,10 @@
     }
     &__checkbox:checked + &__button &__icon::before {
         transform: rotate(135deg);
-        top: 0; 
+        top: 0;
     }
     &__checkbox:checked + &__button &__icon::after {
         transform: rotate(-135deg);
         top: 0;
     }
-
 }
-

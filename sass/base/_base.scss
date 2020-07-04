@@ -20,10 +20,9 @@ html {
         font-size: 50%; //8px = 1rem
     }
 
-/*     @include respond(phone) {
+    /*     @include respond(phone) {
         font-size: 30%;
     } */
-
 }
 body {
     box-sizing: border-box;
@@ -32,7 +31,6 @@ body {
     @include respond(tab-port) {
         padding: 0; //for padding/border
     }
-
 }
 
 ::selection {
